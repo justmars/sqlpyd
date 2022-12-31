@@ -881,54 +881,6 @@ files = [
 ]
 
 [[package]]
-name = "types-markdown"
-version = "3.4.2.1"
-description = "Typing stubs for Markdown"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "types-Markdown-3.4.2.1.tar.gz", hash = "sha256:03c0904cf5886a7d8193e2f50bcf842afc89e0ab80f060f389f6c2635c65628f"},
-    {file = "types_Markdown-3.4.2.1-py3-none-any.whl", hash = "sha256:b2333f6f4b8f69af83de359e10a097e4a3f14bbd6d2484e1829d9b0ec56fa0cb"},
-]
-
-[[package]]
-name = "types-python-dateutil"
-version = "2.8.19.5"
-description = "Typing stubs for python-dateutil"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "types-python-dateutil-2.8.19.5.tar.gz", hash = "sha256:ab91fc5f715f7d76d9a50d3dd74d0c68dfe38a54f0239cfa0506575ae4d87a9d"},
-    {file = "types_python_dateutil-2.8.19.5-py3-none-any.whl", hash = "sha256:253c267e71cac148003db200cb3fc572ab0e2f994b34a4c1de5d3f550f0ad5b2"},
-]
-
-[[package]]
-name = "types-python-slugify"
-version = "5.0.4"
-description = "Typing stubs for python-slugify"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "types-python-slugify-5.0.4.tar.gz", hash = "sha256:a9d44edf034d5ceab8442ce602f976b7880ee935baeff7443964aed93f7e21d4"},
-    {file = "types_python_slugify-5.0.4-py3-none-any.whl", hash = "sha256:d0564feb7e21bd9ab646e692ae93eb9bf1b36e9b9bf7bf38d52eab43d29de2f6"},
-]
-
-[[package]]
-name = "types-pyyaml"
-version = "6.0.12.2"
-description = "Typing stubs for PyYAML"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "types-PyYAML-6.0.12.2.tar.gz", hash = "sha256:6840819871c92deebe6a2067fb800c11b8a063632eb4e3e755914e7ab3604e83"},
-    {file = "types_PyYAML-6.0.12.2-py3-none-any.whl", hash = "sha256:1e94e80aafee07a7e798addb2a320e32956a373f376655128ae20637adb2655b"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -1005,4 +957,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f8a4fee2e995770363c7189ce3ff02f0f2118d1da5fc7357559d8820249df700"
+content-hash = "788a607bdabbbc0e855ec1d875eaf88bcc8bd1863f9a19921bc9101d2af655c5"

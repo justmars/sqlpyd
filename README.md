@@ -1,6 +1,6 @@
 # sqlpyd
 
-Combining *sqlite-utils* + *Pydantic* for a specific project usecase.
+Combining [sqlite-utils](https://github.com/simonw/sqlite-utils) data management + [Pydantic](https://github.com/pydantic/pydantic) data validation for data that will (later) be deployed in a specific [Datasette](https://datasette.io/) project: [LawData](https://lawdata.xyz).
 
 ## Premise
 
@@ -9,14 +9,14 @@ Each data model exists in two dimensions:
 1. the app layer via a pythonic interface; and
 2. the persistence layer via a database.
 
-Here we'll use `sqlite`. Though sqlite features are frequently evolving, see *json1*, *fts5*, etc., it lacks a more robust validation mechanism.
+Here we'll use sqlite. Though sqlite features are frequently evolving, see *json1*, *fts5*, etc., it lacks a more robust validation mechanism.
 
-[Pydantic](https://github.com/pydantic/pydantic) would be useful to:
+Pydantic would be useful to:
 
 1. clean and validate a model's fields prior to database insertion;
 2. reuse data on the pythonic interface for dynamic queries on database extraction.
 
-Since the database query syntax (SQL) is different from the app syntax (python), a useful bridge is [sqlite-utils](https://github.com/simonw/sqlite-utils) which allows us, via this package, to use pre-defined *Pydantic* field attributes as a means of creating dynamic SQL statements.
+Since the database query syntax (SQL) is different from the app syntax (python), a useful bridge is sqlite-utils which allows us, via this package, to use pre-defined *Pydantic* field attributes as a means of creating dynamic SQL statements.
 
 Put another way, this is an attempt to integrate the two tools so that the models declared in *Pydantic* can be consumed directly by *sqlite-utils*.
 

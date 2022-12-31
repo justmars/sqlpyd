@@ -4,6 +4,7 @@ version = "0.0.13"
 description = "A simplistic ORM via sqlite-utils + pydantic."
 authors = ["Marcelino G. Veloso III <mars@veloso.one>"]
 readme = "README.md"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -32,15 +32,13 @@ DB_FILE="code/sqlpyd/test.db"
 
 With the .env file created, the following sqlite `sqlpyd.Connection` object gets a typed `Table`:
 
-```python
-from sqlpyd import Connection
-from sqlite_utils.db import Table
+```py
+>>> from sqlpyd import Connection
+>>> from sqlite_utils.db import Table
 
-conn = Connection()  # will use .env file's DB_FILE value
-conn.db["test_table"].insert(
-    {"text": "hello-world"}, pk="id"
-)  # will contain a db object
-isinstance(conn.tbl("test_table"), Table)
+>>> conn = Connection()  # will use .env file's DB_FILE value
+>>> conn.db["test_table"].insert({"text": "hello-world"}, pk="id")  # will contain a db object
+>>> isinstance(conn.tbl("test_table"), Table)
 True
 ```
 
@@ -163,30 +161,22 @@ class IndividualBio(
 With this setup, we can use the connection to create the table. Note that the primary key `id` is auto-generated in this scenario:
 
 ```py
-conn = Connection(DatabasePath="test.db", WAL=False)
-
-conn.create_table(IndividualBio)
-# <Table person_tbl (id, full_name, first_name, last_name, suffix, nick_name, gender)>
-
-person2 = {  # dict
+>>> conn = Connection(DatabasePath="test.db", WAL=False)
+>>> conn.create_table(IndividualBio)
+<Table person_tbl (id, full_name, first_name, last_name, suffix, nick_name, gender)>
+>>> person2 = {  # dict
     "first_name": "Jane",
     "last_name": "Doe",
     "suffix": None,
     "gender": "FEMALE",  # all caps
     "nick_name": "Jany",
 }
-
-IndividualBio.__validators__  # note that we created a validator for 'gender'
-# {'gender': [<pydantic.class_validators.Validator object at 0x10c497510>]}
-
-IndividualBio.__pre_root_validators__()  # we also have one to create a 'full_name'
-# [<function RegularName.set_full_name at 0x10c4b43a0>]
-
-tbl = conn.add_record(
-    IndividualBio, person2
-)  # under the hood, the dict is instantiated to a Pydantic model and the resulting `tbl` value is an sqlite-utils Table
-
-assert list(tbl.rows) == [
+>>> IndividualBio.__validators__  # note that we created a validator for 'gender'
+{'gender': [<pydantic.class_validators.Validator object at 0x10c497510>]}
+>>> IndividualBio.__pre_root_validators__()  # we also have one to create a 'full_name'
+[<function RegularName.set_full_name at 0x10c4b43a0>]
+>>> tbl = conn.add_record(IndividualBio, person2)  # under the hood, the dict is instantiated to a Pydantic model and the resulting `tbl` value is an sqlite-utils Table
+>>> assert list(tbl.rows) == [
     {
         "id": 1,  # auto-generated
         "full_name": "Jane Doe",  # since the model contains a pre root-validator, it adds a full name
@@ -208,7 +198,7 @@ True
 
 Using `col` in the Pydantic Field signals the need to add the field to an sqlite database table:
 
-```python
+```py
 conn = Connection(DatabasePath="test.db", WAL=False)
 kls = IndividualBio
 tbl = conn.db[kls.__tablename__]
@@ -286,7 +276,7 @@ order by
 
 To add foreign keys, can use the `fk` attribute on a ModelField, assigning the same to a 2-tuple, e.g.:
 
-```python
+```py
 class GroupedIndividuals(TableConfig):
     __tablename__ = "grouping_tbl"
     __indexes__ = [["member_id", "name"]]

@@ -10,21 +10,23 @@ SEQ_CAP = re.compile(r"([A-Z]+)")
 
 
 class TableConfig(BaseModel):
-    """Based on a `pydantic.BaseModel`, makes use of custom
-    `pydantic.Field` attributes, specifically:
+    """Adds custom `pydantic.Field` attributes:
 
-    1. `col`
-    2. `fk`
-    3. `fts`
-    4. `index`
-    5. ModelField(required=)
+    Attribute | Value | Function
+    :--:|:--:|:--:
+    `col` | `str`, `int`, etc. | Accepts a primitive Python type understandable by `sqlite-utils`
+    `fk` | tuple[str, str] | First value: the name of the table in sqlite and; second value: name of column representing the foreign key in said table
+    `fts` | `bool` | If True, a full-text-search counterpart table is created including said column
+    `index` | `bool` | If True, the column is created with an sqlite index`
+    `required` | `bool` | If True, the column is deemed essential to instantiation
+
 
     This enables the construction of an `sqlite-utils`-designed table.
 
-    __indexes__ refers to a list of Iterables that can be used as
+    Note that `__indexes__` as a `ClassVar` refers to a list of Iterables that can be used as
     indexes to the table,based on the sqlite-utils convention.
     Defaults to None.
-    """
+    """  # noqa: E501
 
     __prefix__: ClassVar[str] = "db"
     __tablename__: ClassVar[str]

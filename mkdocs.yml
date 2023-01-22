@@ -25,15 +25,21 @@ nav:
 - reference.md
 plugins:
   - mkdocstrings:
-      default_handler: python
       handlers:
         python:
           options:
+            show_root_toc_entry: false
+            show_category_heading: true
             show_source: true
+            heading_level: 2
   - search:
       lang: en
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
       auto_title: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

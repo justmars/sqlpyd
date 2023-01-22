@@ -1,8 +1,39 @@
-site_name: sqlpyd
+site_name: Citation Utils Docs
+site_description: Regex-based Citations in Philippine Supreme Court decisions.
+repo_url: https://github.com/justmars/citation-utils
 theme:
-  name: material
-plugins:
-- mkdocstrings
+  name: "material"
+  features:
+  - navigation.tabs
+  - navigation.tabs.sticky
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 nav:
-  - "Connection": connection.md
-  - "TableConfig": tableconfig.md
+- index.md
+- reference.md
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: true
+  - search:
+      lang: en
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.superfences

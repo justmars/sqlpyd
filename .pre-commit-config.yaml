@@ -11,13 +11,11 @@ repos:
       - id: trailing-whitespace
       - id: name-tests-test
         args: ["--django"]
-  - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.228
     hooks:
-      - id: flake8
-        args: ['--ignore=F401',]
-        additional_dependencies:
-          - flake8-no-pep420==2.0.0
+      - id: ruff
+        args: ["--force-exclude"]
   - repo: https://github.com/pycqa/isort
     rev: 5.11.4
     hooks:
@@ -28,14 +26,15 @@ repos:
     hooks:
       - id: black
         language_version: python3
+        args: [--preview]
   - repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
+    rev: 1.13.0
     hooks:
-    - id: blacken-docs
-      additional_dependencies:
-        - black==22.12.0
+      - id: blacken-docs
+        additional_dependencies:
+          - black==22.12.0
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.3.1
     hooks:
-    - id: pyupgrade
-      args: [--py311-plus]
+      - id: pyupgrade
+        args: [--py311-plus]

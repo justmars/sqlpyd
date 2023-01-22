@@ -1,5 +1,5 @@
-site_name: Citation Utils Docs
-site_description: Regex-based Citations in Philippine Supreme Court decisions.
+site_name: sqlpyd Docs
+site_description: Pydantic + sqlite-utils for specific content
 repo_url: https://github.com/justmars/citation-utils
 theme:
   name: "material"

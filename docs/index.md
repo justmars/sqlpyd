@@ -7,25 +7,20 @@ hide:
 
 Combining [sqlite-utils](https://github.com/simonw/sqlite-utils) data management + [Pydantic](https://github.com/pydantic/pydantic) data validation for data that will (later) be deployed in a specific [Datasette](https://datasette.io/) project: [LawData](https://lawdata.xyz).
 
-## Premise
+## Stack
 
-Each data model exists in two dimensions:
+In handling data that persists, we'll be using two layers of code:
 
-1. the app layer via a pythonic interface; and
-2. the persistence layer via a database.
+Layer |  Dimension
+:--:|:--:
+App | `sqlite-utils` + `Pydantic`
+Database | `sqlite`
 
-Here we'll use sqlite. Though sqlite features are frequently evolving, see *json1*, *fts5*, etc., it lacks a more robust validation mechanism.
-
-Pydantic would be useful to:
-
-1. clean and validate a model's fields prior to database insertion;
-2. reuse data on the pythonic interface for dynamic queries on database extraction.
-
-Since the database query syntax (SQL) is different from the app syntax (python), a useful bridge is sqlite-utils which allows us, via this package, to use pre-defined *Pydantic* field attributes as a means of creating dynamic SQL statements.
+Though `sqlite` features are frequently evolving, see *json1*, *fts5*, etc., it lacks a more robust validation mechanism. `Pydantic` would be useful to: (a) clean and validate a model's fields **prior** to database insertion; and (b) reuse **extracted** data from the database. Since the database query syntax (SQL) is different from the app syntax (python), a useful bridge is `sqlite-utils` which allows us, via this package, to use pre-defined *Pydantic* field attributes as a means of creating dynamic SQL statements.
 
 Put another way, this is an attempt to integrate the two tools so that the models declared in *Pydantic* can be consumed directly by *sqlite-utils*.
 
-The opinionated use of default configurations is intended for a more specific project. Later on, may consider making this more general in scope.
+The opinionated use of default configurations is intended for a specific project. Later on, may consider making this more general in scope.
 
 ## Connection
 

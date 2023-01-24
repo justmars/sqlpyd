@@ -1,11 +1,16 @@
 ---
 hide:
-  - navigation
-  - toc
+- navigation
 ---
+
 # Overview
 
-Combining [sqlite-utils](https://github.com/simonw/sqlite-utils) data management + [Pydantic](https://github.com/pydantic/pydantic) data validation for data that will (later) be deployed in a specific [Datasette](https://datasette.io/) project: [LawData](https://lawdata.xyz).
+Combines:
+
+1. [sqlite-utils](https://github.com/simonw/sqlite-utils) data management
+2. [Pydantic](https://github.com/pydantic/pydantic) data validation
+
+Data will (later) be deployed to a specific [Datasette](https://datasette.io/) project: [LawData](https://lawdata.xyz) for use in LawSQL(<https://lawsql.com>)
 
 ## Stack
 
@@ -317,3 +322,13 @@ CREATE UNIQUE INDEX [idx_grouping_tbl_member_id]
 CREATE UNIQUE INDEX [idx_grouping_tbl_name_member_id]
     ON [grouping_tbl] ([name], [member_id]);
 ```
+
+## API
+
+### Connection API
+
+::: sqlpyd.conn.Connection
+
+### TableConfig API
+
+::: sqlpyd.tableconfig.TableConfig

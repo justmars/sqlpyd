@@ -20,7 +20,6 @@ class TableConfig(BaseModel):
     `index` | `bool` | If True, the column is created with an sqlite index`
     `required` | `bool` | If True, the column is deemed essential to instantiation
 
-
     This enables the construction of an `sqlite-utils`-designed table.
 
     Note that `__indexes__` as a `ClassVar` refers to a list of Iterables that can be used as

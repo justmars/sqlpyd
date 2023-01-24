@@ -2,7 +2,7 @@
 
 ![Github CI](https://github.com/justmars/sqlpyd/actions/workflows/main.yml/badge.svg)
 
-Validate raw content with pydantic for consumption by sqlite-utils; utilized in the [LawSQL dataset](https://lawsql.com).
+Validate raw content with pydantic for consumption by sqlite-utils.; utilized in the [LawSQL dataset](https://lawsql.com).
 
 ## Documentation
 

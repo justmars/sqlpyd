@@ -151,7 +151,7 @@ class RegularName(
 
 
 class IndividualBio(
-    TableConfig
+    RegularName, TableConfig
 ):  # mandatory step:  inherit from TableConfig (which inherits from BaseModel)
     __tablename__ = "person_tbl"  # optional: may declare a tablename
     __indexes__ = [["first_name", "last_name"]]  # optional: may declare joined indexes

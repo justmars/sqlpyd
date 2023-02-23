@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sqlpyd"
-version = "0.1.4"
+version = "0.1.5"
 description = "Validate raw content with pydantic for consumption by sqlite-utils."
 authors = ["Marcelino G. Veloso III <mars@veloso.one>"]
 readme = "README.md"
@@ -20,12 +20,12 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-python-dotenv = "^0.21.0"
+python-dotenv = "^0.21"
 sqlite-utils = "^3.30"
 pydantic = "^1.10.4"
 
 [tool.poetry.group.dev.dependencies]
-rich = "^12.6"
+rich = "^13.3"
 pytest = "^7.2"
 pytest-datadir = "^1.4.1"
 pytest-cov = "^2.12.1"
@@ -41,12 +41,6 @@ testpaths = ["tests"]
 
 [tool.ruff]
 ignore = ["F401"]
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-line_length = 79
-include_trailing_comma = 'True'
 
 [tool.black]
 line-length = 79

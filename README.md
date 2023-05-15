@@ -14,7 +14,7 @@ Checkout code, create a new virtual environment:
 
 ```sh
 poetry add sqlpyd # python -m pip install sqlpyd
-poetry update # install dependencies
+poetry install # install dependencies
 poetry shell
 ```
 

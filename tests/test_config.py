@@ -2,9 +2,7 @@ from sqlpyd import Connection, IndividualBio
 
 
 def test_sample_columns_from_model(col_structure):
-    assert (
-        IndividualBio.extract_cols(IndividualBio.__fields__) == col_structure
-    )
+    assert IndividualBio.extract_cols(IndividualBio.__fields__) == col_structure
 
 
 def test_config_tbl_pk(in_memory_db: Connection, col_structure):

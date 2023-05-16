@@ -109,13 +109,9 @@ class Connection(BaseSettings):
         Returns:
             Table: The sqlite-utils.db Table instance.
         """
-        return self.create_table(kls).insert(
-            kls(**item).dict(exclude_none=True)
-        )
+        return self.create_table(kls).insert(kls(**item).dict(exclude_none=True))
 
-    def add_records(
-        self, kls, items: Iterable[dict] | Iterator[dict]
-    ) -> Table:
+    def add_records(self, kls, items: Iterable[dict] | Iterator[dict]) -> Table:
         """With a TableConfig `kls` (that is representing or should represent
         an sqlite table), add multiple records to the same which will be
         cleaned via Pydantic prior to being inserted by sqlite-utils.
@@ -131,9 +127,7 @@ class Connection(BaseSettings):
             kls(**item).dict(exclude_none=True) for item in items
         )
 
-    def add_cleaned_records(
-        self, kls, items: Iterable[Any] | Iterator[Any]
-    ) -> Table:
+    def add_cleaned_records(self, kls, items: Iterable[Any] | Iterator[Any]) -> Table:
         """Compare this with `add_records()`. If records have already been
         previously validated, no need for a deserialization step.
 

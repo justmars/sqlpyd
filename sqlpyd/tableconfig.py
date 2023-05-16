@@ -36,9 +36,7 @@ class TableConfig(BaseModel):
         if not hasattr(cls, "__tablename__"):
             msg = "Must explicitly declare a __tablename__ for TableConfig"
             raise NotImplementedError(f"{msg} {cls=}.")
-        cls.__tablename__ = "_".join(
-            [cls.__prefix__, "tbl", cls.__tablename__]
-        )
+        cls.__tablename__ = "_".join([cls.__prefix__, "tbl", cls.__tablename__])
 
     @classmethod
     def config_tbl(cls, tbl: Table) -> Table:
@@ -118,9 +116,7 @@ class TableConfig(BaseModel):
                     yield (k.lower(), v)  # all keys are lower-cased
 
     @classmethod
-    def extract_cols(
-        cls, fields_data: dict[str, ModelField]
-    ) -> dict[str, Any]:
+    def extract_cols(cls, fields_data: dict[str, ModelField]) -> dict[str, Any]:
         """If a `col` attribute is declared in the ModelField,
         e.g. `name: str = Field(col=str)`, extract it.
 
@@ -165,9 +161,7 @@ class TableConfig(BaseModel):
         return fk_tuples or None
 
     @classmethod
-    def _indexes(
-        cls, fields_data: dict[str, ModelField]
-    ) -> list[list[str]] | None:
+    def _indexes(cls, fields_data: dict[str, ModelField]) -> list[list[str]] | None:
         """If `index` attribute in ModelField is set, extract."""
         cols: list[list[str]] = []
         for k, v in cls.extract_model_fields(fields_data):

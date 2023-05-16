@@ -1,10 +1,9 @@
 [tool.poetry]
 name = "sqlpyd"
-version = "0.1.7"
+version = "0.1.8"
 description = "Validate raw content with pydantic for consumption by sqlite-utils."
 authors = ["Marcelino G. Veloso III <mars@veloso.one>"]
 readme = "README.md"
-license = "MIT"
 homepage = "https://lawsql.com"
 repository = "https://github.com/justmars/sqlpyd"
 documentation = "https://github.com/justmars/sqlpyd"
@@ -36,35 +35,16 @@ mkdocs-material = "^9.1"
 
 [tool.pytest.ini_options]
 minversion = "7.2"
-pythonpath = "sqlpyd" # enable pytest in root directly
 addopts = "-ra -q --doctest-modules --cov"
 filterwarnings = [
   "ignore::DeprecationWarning", # DeprecationWarning: pkg_resources is deprecated as an API
 ]
-testpaths = ["tests"]
+testpaths = ["tests", "sqlpyd"]
 
 [tool.ruff]
 ignore = ["F401"]
 fixable = ["F", "E", "W", "I001"]
 select = ["F", "E", "W", "I001"]
-
-[tool.black]
-line-length = 79
-include = '.pyi?$'
-exclude = '''
-/(
-    .git
-    | .hg
-    | .mypy_cache
-    | .tox
-    | .venv
-    | _build
-    | buck-out
-    | build
-    | dist
-)/
-'''
-
 
 [build-system]
 requires = ["poetry-core>=1.3.2"]
